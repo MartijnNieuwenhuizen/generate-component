@@ -1,0 +1,27 @@
+{
+  "name": "generate-component",
+  "version": "0.0.1",
+  "description": "Automate component generation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartijnNieuwenhuizen/generate-component.git"
+  },
+  "keywords": [
+    "Next.js",
+    "generate",
+    "component"
+  ],
+  "author": "Martijn Nieuwenhuizen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartijnNieuwenhuizen/generate-component/issues"
+  },
+  "homepage": "https://github.com/MartijnNieuwenhuizen/generate-component#readme",
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
+}
