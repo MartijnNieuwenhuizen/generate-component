@@ -1,3 +1,5 @@
+'use strict'
+
 const fs = require('fs')
 const cms = require('./generators/cms')
 const component = require('./generators/component')
