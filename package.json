@@ -1,5 +1,5 @@
 {
-  "name": "generate-component",
+  "name": "@martijnnieuwenhuizen/generate-component",
   "version": "0.0.1",
   "description": "Automate component generation",
   "main": "index.js",
@@ -23,5 +23,6 @@
   "homepage": "https://github.com/MartijnNieuwenhuizen/generate-component#readme",
   "devDependencies": {
     "prettier": "^2.3.2"
-  }
+  },
+  "dependencies": {}
 }
