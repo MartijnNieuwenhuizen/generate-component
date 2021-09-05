@@ -1,3 +1,3 @@
-module.exports = err => {
-  if (err) throw err
-}
+module.exports = (err) => {
+  if (err) throw err;
+};

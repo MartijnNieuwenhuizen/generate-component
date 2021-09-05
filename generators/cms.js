@@ -1,6 +1,6 @@
-const capitalizeFirstLetter = require('../utils/capitalize-first-letter')
-const pascalCaseToDash = require('../utils/pascal-case-to-dash')
-const toHumanReadableText = require('../utils/to-human-readable-text')
+const capitalizeFirstLetter = require("../utils/capitalize-first-letter");
+const pascalCaseToDash = require("../utils/pascal-case-to-dash");
+const toHumanReadableText = require("../utils/to-human-readable-text");
 
 /**
  * Generator for a cms.
@@ -8,7 +8,7 @@ const toHumanReadableText = require('../utils/to-human-readable-text')
  * @param {string} componentName
  * @returns string
  */
-module.exports = componentName =>
+module.exports = (componentName) =>
   `export default {
     label: '${capitalizeFirstLetter(toHumanReadableText(componentName))}',
     name: 'text',
@@ -31,4 +31,4 @@ module.exports = componentName =>
         },
     ],
 };
-`
+`;

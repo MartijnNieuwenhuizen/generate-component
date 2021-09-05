@@ -4,8 +4,8 @@
  * @param {string} componentName
  * @returns string
  */
-module.exports = componentName =>
+module.exports = (componentName) =>
   `export default interface ${componentName} {
     children: React.ReactNode;
 }
-`
+`;

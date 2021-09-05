@@ -1,4 +1,4 @@
-const pascalCaseToDash = require('../utils/pascal-case-to-dash')
+const pascalCaseToDash = require("../utils/pascal-case-to-dash");
 
 /**
  * Generator for a component.
@@ -6,7 +6,7 @@ const pascalCaseToDash = require('../utils/pascal-case-to-dash')
  * @param {string} componentName
  * @returns string
  */
-module.exports = componentName =>
+module.exports = (componentName) =>
   `import type ${componentName}Interface from './interface';
 
 import styles from './styles.module.scss';
@@ -18,4 +18,4 @@ export default function ${componentName}({ children }: ${componentName}Interface
             {children}
         </div>
     );
-}`
+}`;
