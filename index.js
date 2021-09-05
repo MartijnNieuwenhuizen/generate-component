@@ -1,10 +1,10 @@
 'use strict'
 
 const fs = require('fs')
-const cms = require('./generators/cms')
-const component = require('./generators/component')
-const interface = require('./generators/interface')
-const styles = require('./generators/styles')
+const cmsGenerator = require('./generators/cms')
+const componentGenerator = require('./generators/component')
+const interfaceGenerator = require('./generators/interface')
+const stylesGenerator = require('./generators/styles')
 const writeFileErrorHandler = require('./utils/write-file-error-handler')
 
 // Grab and filter flags from arguments.
@@ -27,23 +27,27 @@ fs.mkdirSync(dir)
 // Generate component.tsx
 fs.writeFile(
   `${dir}/index.tsx`,
-  component(componentName),
+  componentGenerator(componentName),
   writeFileErrorHandler
 )
 // Generate interface.ts
 fs.writeFile(
   `${dir}/interface.ts`,
-  interface(componentName),
+  interfaceGenerator(componentName),
   writeFileErrorHandler
 )
 // Generate component.scss
 fs.writeFile(
   `${dir}/styles.module.scss`,
-  styles(componentName),
+  stylesGenerator(componentName),
   writeFileErrorHandler
 )
 
+// Generate cms.ts
 if (argumentFlags.includes('--with-netlify-cms')) {
-  // Generate cms.ts
-  fs.writeFile(`${dir}/cms.ts`, cms(componentName), writeFileErrorHandler)
+  fs.writeFile(
+    `${dir}/cms.ts`,
+    cmsGenerator(componentName),
+    writeFileErrorHandler
+  )
 }
