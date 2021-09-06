@@ -75,7 +75,7 @@ export default interface ComponentName {
 ```ts
 export default {
   label: "Component name",
-  name: "text",
+  name: "component-name",
   widget: "object",
   summary: "Component name | {{fields.title}}",
   fields: [
