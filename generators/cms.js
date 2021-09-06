@@ -9,7 +9,9 @@ const toHumanReadableText = require("../utils/to-human-readable-text");
  * @returns string
  */
 module.exports = (componentName) =>
-  `export default {
+  `import type NetlifyCmsField from '../../../interfaces/NetlifyCmsField';
+
+  export default <NetlifyCmsField>{
     label: '${capitalizeFirstLetter(toHumanReadableText(componentName))}',
     name: '${pascalCaseToDash(componentName)}',
     widget: 'object',
