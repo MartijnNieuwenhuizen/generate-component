@@ -11,7 +11,7 @@ const toHumanReadableText = require("../utils/to-human-readable-text");
 module.exports = (componentName) =>
   `export default {
     label: '${capitalizeFirstLetter(toHumanReadableText(componentName))}',
-    name: 'text',
+    name: '${pascalCaseToDash(componentName)}',
     widget: 'object',
     summary: '${capitalizeFirstLetter(
       toHumanReadableText(componentName)
