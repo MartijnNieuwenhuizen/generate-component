@@ -17,7 +17,7 @@ It will generate 3 or 4 files:
 
 ### Explanation of the command
 
-`node node_modules/@martijnnieuwenhuizen/generate-component [path] [file name param]`
+`node node_modules/@martijnnieuwenhuizen/generate-component [path] [file name param (use PascalCase)]`
 
 ### Add Netlify CMS file
 
@@ -26,6 +26,12 @@ If you would like to have a Netlify CMS file with the name `cms.ts`, just add th
 #### Example
 
 `"make-module": "node node_modules/@martijnnieuwenhuizen/generate-component ./components/modules $1" --with-netlify-cms`
+
+### Execute
+
+Execute the command like `yarn run make-module MyModule`.
+
+It's important to PascalCase the module-name as is convention for Next.js/React.js
 
 ## Generated files
 

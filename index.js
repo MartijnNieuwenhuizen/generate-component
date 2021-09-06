@@ -6,6 +6,7 @@ const componentGenerator = require("./generators/component");
 const interfaceGenerator = require("./generators/interface");
 const stylesGenerator = require("./generators/styles");
 const writeFileErrorHandler = require("./utils/write-file-error-handler");
+const startsWithCapital = require("./utils/starts-with-capital");
 
 (function () {
   // Grab and filter flags from arguments.
@@ -16,11 +17,16 @@ const writeFileErrorHandler = require("./utils/write-file-error-handler");
 
   // Grab component-path and component-name from terminal argument.
   const [componentPath, componentName] = argumentsWithoutFlags.slice(2);
-  if (!componentName) throw new Error("You must include a component name.");
-
   const dir = `${componentPath}/${componentName}/`;
 
-  // throw an error if the file already exists.
+  // Throw error if component-name isn't provided.
+  if (!componentName) throw new Error("You must include a component name.");
+
+  // Throw error if the component name isn't in Pascal case
+  if (!startsWithCapital(componentName))
+    throw new Error("The component name must be PascalCase");
+
+  // Throw an error if the file already exists.
   if (fs.existsSync(dir))
     throw new Error("A component with that name already exists.");
 
