@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test-with-cms": "node ./index ./partials $1 --with-netlify-cms",
+    "test-without-cms": "node ./index ./partials $1"
   },
   "repository": {
     "type": "git",
