@@ -9,6 +9,8 @@ It will generate 3 or 4 files:
 - styles.module.scss - CSS Modules file with import statement
 - cms.ts [optional] - Netlify CMS
 
+The setup is based on [this article](https://levelup.gitconnected.com/how-to-generate-react-components-from-your-terminal-a27741a5b862).
+
 ## Usage
 
 ### Add script to package.json
