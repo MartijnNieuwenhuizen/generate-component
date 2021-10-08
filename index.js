@@ -5,6 +5,7 @@ const cmsGenerator = require("./generators/cms");
 const componentGenerator = require("./generators/component");
 const interfaceGenerator = require("./generators/interface");
 const stylesGenerator = require("./generators/styles");
+const prepareGenerator = require("./generators/prepare");
 const writeFileErrorHandler = require("./utils/write-file-error-handler");
 const startsWithCapital = require("./utils/starts-with-capital");
 
@@ -33,16 +34,18 @@ const startsWithCapital = require("./utils/starts-with-capital");
   // create the folder
   fs.mkdirSync(dir);
 
+  const withPrepare = argumentFlags.includes("--with-prepare");
+
   // Generate component.tsx
   fs.writeFile(
     `${dir}/index.tsx`,
-    componentGenerator(componentName),
+    componentGenerator(componentName, withPrepare),
     writeFileErrorHandler
   );
   // Generate interface.ts
   fs.writeFile(
     `${dir}/interface.ts`,
-    interfaceGenerator(componentName),
+    interfaceGenerator(withPrepare),
     writeFileErrorHandler
   );
   // Generate component.scss
@@ -57,6 +60,14 @@ const startsWithCapital = require("./utils/starts-with-capital");
     fs.writeFile(
       `${dir}/cms.ts`,
       cmsGenerator(componentName),
+      writeFileErrorHandler
+    );
+  }
+
+  if (withPrepare) {
+    fs.writeFile(
+      `${dir}/prepare.ts`,
+      prepareGenerator(),
       writeFileErrorHandler
     );
   }
