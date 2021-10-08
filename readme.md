@@ -25,6 +25,10 @@ The setup is based on [this article](https://levelup.gitconnected.com/how-to-gen
 
 If you would like to have a Netlify CMS file with the name `cms.ts`, just add the flag `--with-netlify-cms`
 
+### Create files with the prepare setup
+
+If you would like to have the files exported with the prepare setup, just add the flag `--with-prepare`
+
 #### Example
 
 `"make-module": "node node_modules/@martijnnieuwenhuizen/generate-component ./components/modules $1" --with-netlify-cms`
