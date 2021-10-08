@@ -4,10 +4,10 @@
   "description": "Automate component generation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write .",
+    "test": "node ./index ./partials $1",
     "test-with-cms": "node ./index ./partials $1 --with-netlify-cms",
-    "test-without-cms": "node ./index ./partials $1"
+    "test-with-prepare": "node ./index ./partials $1 --with-prepare"
   },
   "repository": {
     "type": "git",

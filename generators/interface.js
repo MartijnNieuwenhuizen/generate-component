@@ -1,11 +1,18 @@
 /**
  * Generator for a interface.
- *
- * @param {string} componentName
+ 
+ * @param {boolean} withPrepare
  * @returns string
  */
-module.exports = (componentName) =>
-  `export default interface ${componentName} {
-    children: React.ReactNode;
+module.exports = (withPrepare) => {
+  const prepareInterface = withPrepare
+    ? `export interface PreparedComponentInterface extends ComponentInterface {}`
+    : "";
+
+  return `export default interface ComponentInterface {
+  children: React.ReactNode;
 }
+
+${prepareInterface}
 `;
+};
