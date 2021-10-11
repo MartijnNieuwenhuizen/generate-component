@@ -7,9 +7,13 @@ const pascalCaseToDash = require("../utils/pascal-case-to-dash");
  */
 module.exports = () =>
   `import type ComponentInterface from "./interface";
+import type { PreparedComponentInterface } from "./interface";
 import type { AllData } from "../../../utils/create-full-page-data";
   
-export default function prepare(allData: AllData, props: ComponentInterface) {
+export default function prepare(
+  allData: AllData, 
+  props: ComponentInterface
+): PreparedComponentInterface {
     return {};
 }
 `;
