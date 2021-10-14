@@ -26,7 +26,9 @@ function ${componentName}({ children }: ComponentInterface) {
     );
 }
 
-export default withPrepare<ComponentInterface, PreparedComponentInterface>(${componentName})(prepare);
+export default withPrepare<ComponentInterface, PreparedComponentInterface>(
+    prepare
+)(${componentName});
 `
     : `import type ComponentInterface from './interface';
 
