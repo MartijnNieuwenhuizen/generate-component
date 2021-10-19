@@ -7,6 +7,7 @@ const interfaceGenerator = require("./generators/interface");
 const stylesGenerator = require("./generators/styles");
 const prepareGenerator = require("./generators/prepare");
 const storyGenerator = require("./generators/story");
+const mockContentGenerator = require("./generators/mock-content");
 
 const writeFileErrorHandler = require("./utils/write-file-error-handler");
 const startsWithCapital = require("./utils/starts-with-capital");
@@ -19,8 +20,11 @@ const startsWithCapital = require("./utils/starts-with-capital");
   );
 
   const withPrepare = argumentFlags.includes("--with-prepare");
-  const withNetlifyCMs = argumentFlags.includes("--with-netlify-cms");
+  const withNetlifyCms = argumentFlags.includes("--with-netlify-cms");
   const withStory = argumentFlags.includes("--with-story");
+  const withMockContentGenerator = argumentFlags.includes(
+    "--with-mock-content-generator"
+  );
 
   // Grab component-path and component-name from terminal argument.
   const [componentPath, componentName] = argumentsWithoutFlags.slice(2);
@@ -59,8 +63,17 @@ const startsWithCapital = require("./utils/starts-with-capital");
     writeFileErrorHandler
   );
 
+  // Generate mock-content-generator.ts
+  if (withMockContentGenerator) {
+    fs.writeFile(
+      `${dir}/mock-content-generator.ts`,
+      mockContentGenerator(withPrepare),
+      writeFileErrorHandler
+    );
+  }
+
   // Generate cms.ts
-  if (withNetlifyCMs) {
+  if (withNetlifyCms) {
     fs.writeFile(
       `${dir}/cms.ts`,
       cmsGenerator(componentName),

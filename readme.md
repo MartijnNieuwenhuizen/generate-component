@@ -29,9 +29,13 @@ If you would like to have a Netlify CMS file with the name `cms.ts`, just add th
 
 If you would like to have the files exported with the prepare setup, just add the flag `--with-prepare`
 
-### Create files with the prepare setup
+### Add Storybook file
 
 If the component should also include a `index.story.tsx` file (for storybook), just add the flag `--with-story`
+
+### Add mock content generator file
+
+Add the flag `--with-mock-content-generator`
 
 #### Example
 

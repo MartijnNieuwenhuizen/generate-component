@@ -9,7 +9,8 @@
     "test-with-cms": "node ./index ./partials $1 --with-netlify-cms",
     "test-with-prepare": "node ./index ./partials $1 --with-prepare",
     "test-with-story": "node ./index ./partials $1 --with-story",
-    "test-with-prepare-and-story": "node ./index ./partials $1 --with-prepare --with-story"
+    "test-with-prepare-and-story": "node ./index ./partials $1 --with-prepare --with-story",
+    "test-with-mock-content-generator": "node ./index ./partials $1 --with-mock-content-generator"
   },
   "repository": {
     "type": "git",
