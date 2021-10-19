@@ -2,36 +2,31 @@ const capitalizeFirstLetter = require("../utils/capitalize-first-letter");
 const toHumanReadableText = require("../utils/to-human-readable-text");
 
 module.exports = (componentName, withPrepare) => {
-  const interfaceImport = withPrepare
-    ? `import type { PreparedComponentInterface } from "./interface";`
-    : `import type ComponentInterface from "./interface";`;
+  const generatorImport = withPrepare
+    ? `import { mockContentGeneratorWithPrepare } from "./mock-content-generator";`
+    : `import mockContentGenerator from "./mock-content-generator";`;
 
-  const interface = withPrepare
-    ? `PreparedComponentInterface`
-    : `ComponentInterface`;
+  const generatorFunctionName = withPrepare
+    ? mockContentGeneratorWithPrepare
+    : mockContentGenerator;
 
   const storyName = capitalizeFirstLetter(toHumanReadableText(componentName));
 
-  return `import { ComponentStory } from "@storybook/react";
-    
-    ${interfaceImport}
-    
-    import Component from "./index";
-    
-    export default {
-        title: "Flexible/${storyName}",
-        component: Component,
-    };
-    
-    const Template: ComponentStory<typeof Component> = (args) => (
-        <Component {...args} />
-        );
-        
-        const defaultProps: ${interface} = {
-            children: "<h1>Luke, I'm your child</h1>",
-        };
-        
-        export const Text = Template.bind({});
-        Text.args = defaultProps;
-        `;
+  `import { ComponentStory } from "@storybook/react";
+  
+${generatorImport}
+import Component from "./index";
+
+export default {
+  title: "Flexible/${storyName}",
+  component: Component,
+};
+
+const Template: ComponentStory<typeof Component> = (args) => (
+  <Component {...args} />
+);
+
+export const ${componentName} = Template.bind({});
+${componentName}.args = ${generatorFunctionName}();
+`;
 };
