@@ -6,6 +6,8 @@ const componentGenerator = require("./generators/component");
 const interfaceGenerator = require("./generators/interface");
 const stylesGenerator = require("./generators/styles");
 const prepareGenerator = require("./generators/prepare");
+const storyGenerator = require("./generators/story");
+
 const writeFileErrorHandler = require("./utils/write-file-error-handler");
 const startsWithCapital = require("./utils/starts-with-capital");
 
@@ -15,6 +17,10 @@ const startsWithCapital = require("./utils/starts-with-capital");
   const argumentsWithoutFlags = process.argv.filter(
     (item) => !item.includes("--")
   );
+
+  const withPrepare = argumentFlags.includes("--with-prepare");
+  const withNetlifyCMs = argumentFlags.includes("--with-netlify-cms");
+  const withStory = argumentFlags.includes("--with-story");
 
   // Grab component-path and component-name from terminal argument.
   const [componentPath, componentName] = argumentsWithoutFlags.slice(2);
@@ -33,8 +39,6 @@ const startsWithCapital = require("./utils/starts-with-capital");
 
   // create the folder
   fs.mkdirSync(dir);
-
-  const withPrepare = argumentFlags.includes("--with-prepare");
 
   // Generate component.tsx
   fs.writeFile(
@@ -56,7 +60,7 @@ const startsWithCapital = require("./utils/starts-with-capital");
   );
 
   // Generate cms.ts
-  if (argumentFlags.includes("--with-netlify-cms")) {
+  if (withNetlifyCMs) {
     fs.writeFile(
       `${dir}/cms.ts`,
       cmsGenerator(componentName),
@@ -64,10 +68,20 @@ const startsWithCapital = require("./utils/starts-with-capital");
     );
   }
 
+  // Generate prepare.ts
   if (withPrepare) {
     fs.writeFile(
       `${dir}/prepare.ts`,
       prepareGenerator(),
+      writeFileErrorHandler
+    );
+  }
+
+  // Generate index.story.tsx
+  if (withStory) {
+    fs.writeFile(
+      `${dir}/index.story.tsx`,
+      storyGenerator(componentName, withPrepare),
       writeFileErrorHandler
     );
   }
