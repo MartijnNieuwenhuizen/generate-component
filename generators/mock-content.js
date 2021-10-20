@@ -4,7 +4,7 @@ module.exports = (withPrepare) => {
     : ``;
 
   const prepareFunction = withPrepare
-    ? `export const mockContentGeneratorWithPrepare =
+    ? `export const generateMockContentWithPrepare =
 (): PreparedComponentInterface => ({
     children: "<h1>This is a auto generated block</h1>",
 });`

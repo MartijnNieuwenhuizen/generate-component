@@ -3,16 +3,16 @@ const toHumanReadableText = require("../utils/to-human-readable-text");
 
 module.exports = (componentName, withPrepare) => {
   const generatorImport = withPrepare
-    ? `import { mockContentGeneratorWithPrepare } from "./mock-content-generator";`
-    : `import mockContentGenerator from "./mock-content-generator";`;
+    ? `import { generateMockContentWithPrepare } from "./generate-mock-content";`
+    : `import generateMockContent from "./generate-mock-content";`;
 
   const generatorFunctionName = withPrepare
-    ? mockContentGeneratorWithPrepare
-    : mockContentGenerator;
+    ? `generateMockContentWithPrepare`
+    : `generateMockContent`;
 
   const storyName = capitalizeFirstLetter(toHumanReadableText(componentName));
 
-  `import { ComponentStory } from "@storybook/react";
+  return `import { ComponentStory } from "@storybook/react";
   
 ${generatorImport}
 import Component from "./index";

@@ -63,10 +63,10 @@ const startsWithCapital = require("./utils/starts-with-capital");
     writeFileErrorHandler
   );
 
-  // Generate mock-content-generator.ts
+  // Generate generate-mock-content.ts
   if (withMockContentGenerator) {
     fs.writeFile(
-      `${dir}/mock-content-generator.ts`,
+      `${dir}/generate-mock-content.ts`,
       mockContentGenerator(withPrepare),
       writeFileErrorHandler
     );
