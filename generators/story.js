@@ -18,7 +18,7 @@ ${generatorImport}
 import Component from "./index";
 
 export default {
-  title: "Flexible/${storyName}",
+  title: "Flexibles/${storyName}",
   component: Component,
 };
 
