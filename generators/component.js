@@ -17,7 +17,7 @@ import withPrepare from "../../../utils/create-full-page-data/with-prepare";
 import prepare from './prepare';
 import styles from './styles.module.scss';
 
-function ${componentName}({ children }: ComponentInterface) {
+function ${componentName}({ children }: PreparedComponentInterface) {
     return (
         <div className={styles['${pascalCaseToDash(componentName)}']}>
             <h1>Hello! ${componentName}</h1>
