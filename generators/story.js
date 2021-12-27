@@ -12,6 +12,8 @@ module.exports = (componentName, withPrepare) => {
 
   const storyName = capitalizeFirstLetter(toHumanReadableText(componentName));
 
+  const componentName = withPrepare ? "Component.render" : "Component";
+
   return `import { ComponentStory } from "@storybook/react";
   
 ${generatorImport}
@@ -22,8 +24,8 @@ export default {
   component: Component,
 };
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} />
+const Template: ComponentStory<typeof ${componentName}> = (args) => (
+  <${componentName} {...args} />
 );
 
 export const ${componentName} = Template.bind({});
