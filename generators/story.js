@@ -12,7 +12,7 @@ module.exports = (componentName, withPrepare) => {
 
   const storyName = capitalizeFirstLetter(toHumanReadableText(componentName));
 
-  const componentName = withPrepare ? "Component.render" : "Component";
+  const componentCaller = withPrepare ? "Component.render" : "Component";
 
   return `import { ComponentStory } from "@storybook/react";
   
@@ -24,8 +24,8 @@ export default {
   component: Component,
 };
 
-const Template: ComponentStory<typeof ${componentName}> = (args) => (
-  <${componentName} {...args} />
+const Template: ComponentStory<typeof ${componentCaller}> = (args) => (
+  <${componentCaller} {...args} />
 );
 
 export const ${componentName} = Template.bind({});
