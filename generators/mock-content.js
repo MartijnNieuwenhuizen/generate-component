@@ -23,7 +23,7 @@ module.exports = (withPrepare) => {
 ${prepareInterface}
 import type { Subset } from "../../../interfaces/subset";
 
-import { deepMerge } from "../../../utils/deep-merge";
+import deepMerge from "../../../utils/deep-merge";
 
 type PartialComponentInterface = Subset<ComponentInterface>;
 ${partialPreparedInterface}
