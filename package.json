@@ -1,6 +1,6 @@
 {
   "name": "@martijnnieuwenhuizen/generate-component",
-  "version": "0.9.6",
+  "version": "0.10.0",
   "description": "Automate component generation",
   "main": "index.js",
   "scripts": {
