@@ -20,6 +20,9 @@ const startsWithCapital = require("./utils/starts-with-capital");
   );
 
   const withPrepare = argumentFlags.includes("--with-prepare");
+  const prepareWithoutInitialData = argumentFlags.includes(
+    "--prepare-without-initial-data"
+  );
   const withNetlifyCms = argumentFlags.includes("--with-netlify-cms");
   const withStory = argumentFlags.includes("--with-story");
   const withMockContentGenerator = argumentFlags.includes(
@@ -85,7 +88,7 @@ const startsWithCapital = require("./utils/starts-with-capital");
   if (withPrepare) {
     fs.writeFile(
       `${dir}/prepare.ts`,
-      prepareGenerator(),
+      prepareGenerator(prepareWithoutInitialData),
       writeFileErrorHandler
     );
   }
