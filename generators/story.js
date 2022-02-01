@@ -14,21 +14,18 @@ module.exports = (componentName, withPrepare) => {
 
   const componentCaller = withPrepare ? "Component.render" : "Component";
 
-  return `import { ComponentStory } from "@storybook/react";
-  
+  return `import { Meta, Story } from "@storybook/addon-docs";
+
 ${generatorImport}
+
 import Component from "./index";
 
-export default {
-  title: "Flexibles/${storyName}",
-  component: Component,
-};
+<Meta title="Flexibles/${storyName}" component={${componentCaller}} />
 
-const Template: ComponentStory<typeof ${componentCaller}> = (args) => (
-  <${componentCaller} {...args} />
-);
+export const Template = (args) => <${componentCaller} {...args} />;
 
-export const ${componentName} = Template.bind({});
-${componentName}.args = ${generatorFunctionName}();
+<Story name="${storyName}" args={${generatorFunctionName}()}>
+    {Template.bind({})}
+</Story>
 `;
 };
