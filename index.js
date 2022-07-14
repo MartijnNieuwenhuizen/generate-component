@@ -6,6 +6,7 @@ const componentGenerator = require("./generators/component");
 const interfaceGenerator = require("./generators/interface");
 const stylesGenerator = require("./generators/styles");
 const prepareGenerator = require("./generators/prepare");
+const wordpressPrepareGenerator = require("./generators/wordpress-prepare");
 const storyGenerator = require("./generators/story");
 const mockContentGenerator = require("./generators/mock-content");
 
@@ -28,6 +29,7 @@ const startsWithCapital = require("./utils/starts-with-capital");
   const withMockContentGenerator = argumentFlags.includes(
     "--with-mock-content-generator"
   );
+  const withWordpress = argumentFlags.includes("--with-wordpress");
 
   // Grab component-path and component-name from terminal argument.
   const [componentPath, componentName] = argumentsWithoutFlags.slice(2);
@@ -85,10 +87,17 @@ const startsWithCapital = require("./utils/starts-with-capital");
   }
 
   // Generate prepare.ts
-  if (withPrepare) {
+  if (withPrepare && !withWordpress) {
     fs.writeFile(
       `${dir}/prepare.ts`,
       prepareGenerator(prepareWithoutInitialData),
+      writeFileErrorHandler
+    );
+  }
+  if (withPrepare && withWordpress) {
+    fs.writeFile(
+      `${dir}/prepare.ts`,
+      wordpressPrepareGenerator(),
       writeFileErrorHandler
     );
   }

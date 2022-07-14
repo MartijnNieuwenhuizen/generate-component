@@ -12,7 +12,8 @@
     "test-with-story": "node ./index ./partials $1 --with-story",
     "test-with-prepare-and-story": "node ./index ./partials $1 --with-prepare --with-story",
     "test-with-mock-content-generator": "node ./index ./partials $1 --with-story --with-mock-content-generator",
-    "test-with-mock-content-generator-and-prepare": "node ./index ./partials $1 --with-story --with-mock-content-generator --with-prepare"
+    "test-with-mock-content-generator-and-prepare": "node ./index ./partials $1 --with-story --with-mock-content-generator --with-prepare",
+    "test-with-mock-content-generator-and-prepare-and-wordpress": "node ./index ./partials $1 --with-story --with-mock-content-generator --with-prepare --with-wordpress"
   },
   "repository": {
     "type": "git",
