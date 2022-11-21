@@ -7,7 +7,7 @@ const pascalCaseToDash = require("../utils/pascal-case-to-dash");
  * @returns string
  */
 module.exports = (componentName) =>
-  `@import '../../../styles/base.scss';
+  `@import "../../../styles/base.scss";
 
 .${pascalCaseToDash(componentName)} {
     @include block(large);
