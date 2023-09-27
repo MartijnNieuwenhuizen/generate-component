@@ -7,47 +7,48 @@ It will generate 3 or 4 files:
 - index.tsx - React component
 - interface.ts - Component interface
 - styles.module.scss - CSS Modules file with import statement
+- prepare.ts [optional] - Prepare function, needed for GRRR
+- storybook.ts [optional] - Storybook component
 - cms.ts [optional] - Netlify CMS
 
 The setup is based on [this article](https://levelup.gitconnected.com/how-to-generate-react-components-from-your-terminal-a27741a5b862).
 
-## Usage
+## Setup
 
 ### Add script to package.json
 
-`"make-module": "node node_modules/@martijnnieuwenhuizen/generate-component ./components/modules $1"`
+`"create-component": "node node_modules/@martijnnieuwenhuizen/generate-component"`
+`"cc": "node node_modules/@martijnnieuwenhuizen/generate-component"`
 
-### Explanation of the command
+### Add config file
 
-`node node_modules/@martijnnieuwenhuizen/generate-component [path] [file name param (use PascalCase)]`
+Filename: `.componentgenerator.json`
 
-### Add Netlify CMS file
+```json
+{
+  "codeStack": "wordpress-nextjs",
+  "withInitialData": false,
+  "flexiblesPath": "./components/flexibles",
+  "modulesPath": "./components/modules",
+  "partialsPath": "./components/partials"
+}
+```
 
-If you would like to have a Netlify CMS file with the name `cms.ts`, just add the flag `--with-netlify-cms`
+Options:
 
-### Create files with the prepare setup
+- codeStack: "wordpress-nextjs" | "nova-nextjs" | "netlify-cms-nextjs"
+- codeStack: true | false
+- flexiblesPath: "./components/flexibles"
+- modulesPath: "./components/modules"
+- partialsPath: "./components/partials
 
-If you would like to have the files exported with the prepare setup, just add the flag `--with-prepare`
+## Usage
 
-### Add Storybook file
-
-If the component should also include a `index.story.tsx` file (for storybook), just add the flag `--with-story`
-
-### Add mock content generator file
-
-Add the flag `--with-mock-content-generator`
-
-#### Example
-
-`"make-module": "node node_modules/@martijnnieuwenhuizen/generate-component ./components/modules $1" --with-netlify-cms`
-
-### Execute
-
-Execute the command like `yarn run make-module MyModule`.
-
-It's important to PascalCase the module-name as is convention for Next.js/React.js
+`yarn run create-component` or `yarn run cc`
 
 ## Generated files
+
+These files will be generated:
 
 ### Component
 

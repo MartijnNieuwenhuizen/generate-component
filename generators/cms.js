@@ -1,6 +1,6 @@
-const capitalizeFirstLetter = require("../utils/capitalize-first-letter");
-const pascalCaseToDash = require("../utils/pascal-case-to-dash");
-const toHumanReadableText = require("../utils/to-human-readable-text");
+import capitalizeFirstLetter from "../utils/capitalize-first-letter.js";
+import pascalCaseToDash from "../utils/pascal-case-to-dash.js";
+import toHumanReadableText from "../utils/to-human-readable-text.js";
 
 /**
  * Generator for a cms.
@@ -8,7 +8,7 @@ const toHumanReadableText = require("../utils/to-human-readable-text");
  * @param {string} componentName
  * @returns string
  */
-module.exports = (componentName) =>
+export default (componentName) =>
   `import type NetlifyCmsField from '../../../interfaces/NetlifyCmsField';
 
   export default <NetlifyCmsField>{

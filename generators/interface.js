@@ -4,7 +4,7 @@
  * @param {boolean} withPrepare
  * @returns string
  */
-module.exports = (withPrepare) => {
+export default (withPrepare) => {
   const prepareInterface = withPrepare
     ? `export interface PreparedComponentInterface extends ComponentInterface {}`
     : "";

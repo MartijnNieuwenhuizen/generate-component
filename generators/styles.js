@@ -1,4 +1,4 @@
-const pascalCaseToDash = require("../utils/pascal-case-to-dash");
+import pascalCaseToDash from "../utils/pascal-case-to-dash.js";
 
 /**
  * Generator for styles.
@@ -6,7 +6,7 @@ const pascalCaseToDash = require("../utils/pascal-case-to-dash");
  * @param {string} componentName
  * @returns string
  */
-module.exports = (componentName) =>
+export default (componentName) =>
   `@import '../../../styles/base.scss';
 
 .${pascalCaseToDash(componentName)} {

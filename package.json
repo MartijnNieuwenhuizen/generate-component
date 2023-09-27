@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "description": "Automate component generation",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "format": "prettier --write .",
     "test": "node ./index ./partials $1",
@@ -13,7 +14,8 @@
     "test-with-prepare-and-story": "node ./index ./partials $1 --with-prepare --with-story",
     "test-with-mock-content-generator": "node ./index ./partials $1 --with-story --with-mock-content-generator",
     "test-with-mock-content-generator-and-prepare": "node ./index ./partials $1 --with-story --with-mock-content-generator --with-prepare",
-    "test-with-mock-content-generator-and-prepare-and-wordpress": "node ./index ./partials $1 --with-story --with-mock-content-generator --with-prepare --with-wordpress"
+    "test-with-mock-content-generator-and-prepare-and-wordpress": "node ./index ./partials $1 --with-story --with-mock-content-generator --with-prepare --with-wordpress",
+    "create-component": "node ./index"
   },
   "repository": {
     "type": "git",
@@ -33,5 +35,7 @@
   "devDependencies": {
     "prettier": "^2.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "inquirer": "^9.2.11"
+  }
 }

@@ -3,7 +3,7 @@
  *
  * @returns string
  */
-module.exports = () =>
+export default () =>
   `import type ComponentInterface from "./interface";
 import type { PreparedComponentInterface } from "./interface";
 import type { WPPost } from "../../../content/api-interfaces";

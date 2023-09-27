@@ -1,7 +1,7 @@
-const capitalizeFirstLetter = require("../utils/capitalize-first-letter");
-const toHumanReadableText = require("../utils/to-human-readable-text");
+import capitalizeFirstLetter from "../utils/capitalize-first-letter.js";
+import toHumanReadableText from "../utils/to-human-readable-text.js";
 
-module.exports = (componentName, withPrepare) => {
+export default (componentName, withPrepare) => {
   const generatorImport = withPrepare
     ? `import { generateMockContentWithPrepare } from "./generate-mock-content";`
     : `import generateMockContent from "./generate-mock-content";`;

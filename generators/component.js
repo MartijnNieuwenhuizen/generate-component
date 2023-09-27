@@ -1,4 +1,4 @@
-const pascalCaseToDash = require("../utils/pascal-case-to-dash");
+import pascalCaseToDash from "../utils/pascal-case-to-dash.js";
 
 /**
  * Generator for a component.
@@ -7,7 +7,7 @@ const pascalCaseToDash = require("../utils/pascal-case-to-dash");
  * @param {boolean} withPrepare
  * @returns string
  */
-module.exports = (componentName, withPrepare) =>
+export default (componentName, withPrepare) =>
   withPrepare
     ? `import type ComponentInterface from './interface';
 import type { PreparedComponentInterface } from './interface';
