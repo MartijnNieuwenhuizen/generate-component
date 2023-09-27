@@ -1,4 +1,4 @@
-module.exports = (withPrepare) => {
+export default (withPrepare) => {
   const prepareInterface = withPrepare
     ? `import type { PreparedComponentInterface } from "./interface";`
     : ``;

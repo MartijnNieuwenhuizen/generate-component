@@ -1,11 +1,9 @@
-const pascalCaseToDash = require("../utils/pascal-case-to-dash");
-
 /**
  * Generate a empty prepare function.
  *
  * @returns string
  */
-module.exports = (withoutInitialData) =>
+export default (withoutInitialData) =>
   withoutInitialData
     ? `import type ComponentInterface from "./interface";
 import type { PreparedComponentInterface } from "./interface";

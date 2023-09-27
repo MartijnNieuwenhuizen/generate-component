@@ -1,0 +1,7 @@
+{
+  "codeStack": "wordpress-nextjs",
+  "withInitialData": false,
+  "flexiblesPath": "./components/flexibles",
+  "modulesPath": "./components/modules",
+  "partialsPath": "./components/partials"
+}

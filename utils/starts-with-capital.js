@@ -4,4 +4,4 @@
  * @param {string} str
  * @returns boolean
  */
-module.exports = (str) => str.charAt(0) === str.charAt(0).toUpperCase();
+export default (str) => str.charAt(0) === str.charAt(0).toUpperCase();
